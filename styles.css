@@ -175,6 +175,9 @@ header nav a:hover{
   background-attachment: fixed;
   background-size: cover
 }
+#app_hacemos * {
+  color: white
+}
 .contenido{
   padding-top: 120px;
   margin-top: -120px
@@ -182,6 +185,10 @@ header nav a:hover{
 li {
   padding-left: 0px !important;
   margin-left: 20px;
+  justify-content: initial;
+  text-align: initial;
+  align-items: initial;
+  align-content: initial;
 }
 .grid2col{
   display: grid;
@@ -196,7 +203,7 @@ li {
 .appL{
   grid-column: 1
 }
-.appL * {
+.appL > * {
   justify-content: initial;
   text-align: initial;
   align-items: initial;
@@ -210,7 +217,7 @@ li {
 .appR{
   grid-column: 2
 }
-.appR * {
+.appR > * {
   justify-content: initial;
   text-align: initial;
   align-items: initial;

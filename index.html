@@ -25,17 +25,22 @@
             </div>
             <div style="padding: 50px 200px">
                 <p style="font-size: 25px; font-family: Open Sans, Arial, Helvetica, sans-serif">
-                    De momento, incluimos en esta página la sesión de hoy.</p>
+                    De momento, incluimos en esta página la sesión de hoy.
+                    <br>Cuando acabe la sesión, no desmontar los circuitos.
+                </p>
             </div>
             
             <div id="apps" class="contenido grid2col">
                 <h2 style="grid-column-start: 1; grid-column-end: 3; margin-top: 20px; margin-bottom: 30px">Ideas para la sesión de hoy</h2>
                 <div class="appL" style="background: #1FC04C;">
                     <h3>Linterna automática programada</h3>
-                    <p>Se utilizan las siguientes funciones de Arduino:
+                    <p>Ya intentamos hacer un prototipo de linterna, pero no llegamos a hacerla funcionar como queríamos.
+                        <br>Ahora vamos a hacer que el Arduino lea cuánta luz hay con un LDR y dependiendo de eso encenderemos un LED.
+                        <br>Se utilizan las siguientes funciones y características de Arduino:
                         <ul>
                             <li>analogRead(PIN_LDR)</li>
                             <li>analogWrite(PIN_LED)</li>
+                            <li>Operaciones (división) o condiciones. <em>Escoger una de las dos.</em></li>
                         </ul>
                     </p>
                     <a href=" ">
@@ -43,14 +48,15 @@
                         <i class="material-icons">arrow_forward</i>
                     </a>
                 </div>
-                <div style="grid-column: 2; height: 100%; padding: 0; background-image: url(images/winXP.jpg); background-size: cover; background-position: center"></div>
+                <div style="grid-column: 2; height: 100%; padding: 0; background-image: url(images/.jpg); background-size: cover; background-position: center"></div>
                 <iframe style="grid-column: 1; height: 100%; width: 100%;" src="https://www.youtube.com/embed/K6KbEnGnymk?controls=2&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 <div class="appR" style="background: goldenrod;">
                     <h3>"Theremin", el instrumento que no se toca</h3>
-                    <p>Se utilizan las siguientes funciones de Arduino:
+                    <p>Aunque dentro de nada aprenderemos a usar un sensor de distancia en condiciones, vamos a hacerlo a nuestra manera con un LDR (resistencia sensible a la luz). 
+                        <br>Se utilizan las siguientes funciones de Arduino:
                         <ul>
                             <li>analogRead(PIN_LDR)</li>
-                            <li>analogWrite(PIN_LED)</li>
+                            <li>analogWrite(PIN_LED, ENERGIA)</li>
                         </ul>
                     </p>
                     <a href=" ">
@@ -59,11 +65,12 @@
                     </a>
                 </div>
                 <div class="appL" style="background: rgb(0, 140, 255);">
-                    <h3>"Theremin", el instrumento que no se toca</h3>
-                    <p>Se utilizan las siguientes funciones de Arduino:
+                    <h3>Cruce de semáforos</h3>
+                    <p>Parece fácil pero en realidad hay que tener en cuenta muchas luces. 
+                        <br>Nosotros lo programaremos como un paso de peatones simplificado, con 1 semáforo para los coches (3 colores) y otro para los peatones (2 colores).
+                        <br>Se utilizan las siguientes funciones de Arduino:
                         <ul>
-                            <li>analogRead(PIN_LDR)</li>
-                            <li>analogWrite(PIN_LED)</li>
+                            <li>digitalWrite(PIN_LED, ESTADO)</li>
                         </ul>
                     </p>
                     <a href=" ">
@@ -71,15 +78,17 @@
                         <i class="material-icons">arrow_forward</i>
                     </a>
                 </div>
-                <div style="grid-column: 2; height: 100%; padding: 0; background-image: url(images/faceid1.jpg); background-size: cover"></div>
+                <div style="grid-column: 2; height: 100%; padding: 0; background-image: url(images/Semaforo.jpg); background-size: cover"></div>
                 <div style="grid-column: 1; width:100%; height: 100%; padding: 0; background-image: url(images/pic-code.jpeg); background-size: cover; background-position: center; background-attachment: fixed;">
                 </div>
                 <div class="appL" style="background: rgb(219, 123, 12)">
-                    <h3>"Theremin", el instrumento que no se toca</h3>
-                    <p>Se utilizan las siguientes funciones de Arduino:
+                    <h3>El dado electrónico</h3>
+                    <p>Programaremos un dado con 6 LEDs en las que cada una represente un número. 
+                        Cada vez que pulsemos el botón, haremos que se ejecute el programa, que deberá encender uno de los 6 (o desde el primero hasta ese, pero esto ya es más complicado).
+                        <br>Se utilizan las siguientes funciones de Arduino:
                         <ul>
-                            <li>analogRead(PIN_LDR)</li>
-                            <li>analogWrite(PIN_LED)</li>
+                            <li>digitalRead(PIN_BOTON)</li>
+                            <li>digitalWrite(PIN_LED, ESTADO)</li>
                         </ul>
                     </p>
                     <a href=" ">
@@ -87,16 +96,17 @@
                         <i class="material-icons">arrow_forward</i>
                     </a>
                 </div>
-                <div class="appR" style="background: rgb(34, 155, 75);">
-                    <h3>"Theremin", el instrumento que no se toca</h3>
-                    <p>Se utilizan las siguientes funciones de Arduino:
+                <div class="appR" style="background: rgb(34, 155, 75); height: 80%;">
+                    <h3><b>VALIENTE:</b> Música con Arduino</h3>
+                    <p>El cableado de esta opción es mucho más fácil que los demás, pero la programación es dura: se utilizan listas, algo que aún no hemos visto.
+                        <br>Sin embargo, si os apetece, podéis echar un vistazo al código y la explicación de la página web que os dejamos.
+                        <br>Se utiliza la siguiente función de Arduino:
                         <ul>
-                            <li>analogRead(PIN_LDR)</li>
-                            <li>analogWrite(PIN_LED)</li>
+                            <li>tone(PIN_ALTAVOZ, FRECUENCIA, DURACION)</li>
                         </ul>
                     </p>
-                    <a href=" ">
-                        Ver instrucciones
+                    <a href="https://www.prometec.net/buzzers/">
+                        Ver tutorial
                         <i class="material-icons">arrow_forward</i>
                     </a>
                 </div>
@@ -128,7 +138,7 @@
                     </div>
                 </div>
             </div>
-            <div id="contacto" class="contenido">
+            <!--div id="contacto" class="contenido">
                 <h2 style="padding: 20px">Buzón de sugerencias</h2>
                 <div style="display: flex; margin-top: 10px">
                     <form action="https://formspree.io/brontappsdev@gmail.com" method="POST">
@@ -141,7 +151,7 @@
                         <input type="submit" value="Enviar">
                     </form>
                 </div>
-            </div>
+            </div-->
         </div>
         <footer>
             <p>© 2019</p>
