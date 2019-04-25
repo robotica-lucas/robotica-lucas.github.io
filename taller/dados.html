@@ -35,9 +35,56 @@
                     </ul>
                 </p>
                 <p>
-
+                    Lo colocaremos así:
                 </p>
-                <img src="dado.jpg">
+                <img src="dado.jpg" width="1000">
+                <p>Para programarlo, tendremos que declarar que todos los pines (es mejor ponerlos todos juntos, luego veréis por qué) son de salida (OUTPUT). Esto lo haremos dentro de las llaves del <code>void setup()</code>:</p>
+                <br>
+                <code>
+                    pinMode(2, OUTPUT);<br>
+                    pinMode(3, OUTPUT);<br>
+                    pinMode(4, OUTPUT);<br>
+                    pinMode(5, OUTPUT);<br>
+                    pinMode(6, OUTPUT);<br>
+                    pinMode(7, OUTPUT);<br>
+                    pinMode(8, OUTPUT);<br>
+                </code>
+                <br>
+                <p>Ahora vamos a hacer que cada segundo salga un número aleatorio entre 0 y 6. ¿Cómo? Con la función <code>random(MINIMO, MAXIMO+1);</code> dentro del <code>void loop()</code>, ya que queremos que se repita siempre. 
+                    Para hacerlo entre 0 y 6, tendremos que escribir <code>random(0, 7)</code> ya que el 7 no está incluido. <br>
+                    Usaremos el "if" con la condición, comprobando número por número si coincide con el aleatorio que nos ha dado Arduino.</p>
+                <code>
+                    int aleatorio = random(0, 7); //        El número ALEATORIO<br>
+                    if (aleatorio == 6){        //      Comprobamos si coincide con uno de ellos
+                    <br>digitalWrite(8, HIGH);<br> } <br>
+                    if (aleatorio == 5){ <br>digitalWrite(7, HIGH);<br> } <br>
+                    if (aleatorio == 4){ <br>digitalWrite(6, HIGH);<br> } <br>
+                    if (aleatorio == 3){ <br>digitalWrite(5, HIGH);<br> } <br>
+                    if (aleatorio == 2){ <br>digitalWrite(4, HIGH);<br> } <br>
+                    if (aleatorio == 1){ <br>digitalWrite(3, HIGH);<br> } <br>
+                    if (aleatorio == 0){ <br>digitalWrite(2, HIGH);<br> } <br>
+                    delay(1000);      // Esperar 1 segundo <br>
+                    digitalWrite(8, LOW);       // Apagar TODOS los LEDs<br>
+                    digitalWrite(7, LOW);<br>
+                    digitalWrite(6, LOW);<br>
+                    digitalWrite(5, LOW);<br>
+                    digitalWrite(4, LOW);<br>
+                    digitalWrite(3, LOW);<br>
+                    digitalWrite(2, LOW);<br>
+                </code>
+                <br>
+                <h5>Pero tenemos una solución aún mejor</h5>
+                <p>Si os fijáis siempre el número del pin es el número aleatorio más 2. Además, estamos apagando todos los LEDs al final aunque solo haya habido uno encendido.<br>
+                Vamos a crear otra variable de la siguiente manera: <code>int pin = aleatorio + 2;</code> y así sabremos directamente el número del pin que hay que encender y luego apagar.<br>
+                Así podemos quitar todos los molestos condicionales "if" y dejar solamente el siguiente código dentro del <code>void loop()</code>:<br>
+                </p>
+                <code>
+                    int aleatorio = random(0, 7); // El número ALEATORIO<br>
+                    int pin = aleatorio + 2;        // El pin<br>
+                    <br>digitalWrite(pin, HIGH);    // Encender solo el que queremos <br>
+                    delay(1000);       // Esperar 1 segundo <br>
+                    digitalWrite(pin, LOW);         // Apagar solo el que hay encendido<br>
+                </code>
             </div>
         </div>
         <footer>
