@@ -1,4 +1,4 @@
-int time = 20;
+int tiempo = 20;
 
 void setup() {
   pinMode(8, INPUT);
