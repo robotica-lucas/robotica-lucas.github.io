@@ -378,7 +378,6 @@ input[type=submit]:active{
 .orange:hover{background-color:orange;}
 .white:hover{background-color: white;  fill: rgb(0, 105, 224) !important;}
 
-
 @keyframes parpadeo {
   0% {
     opacity: 1.0;
@@ -395,6 +394,59 @@ input[type=submit]:active{
   100% {
     opacity: 1.0;
   }
+}
+
+@media screen and (max-width:1150px), (pointer:coarse){
+  #app_hacemos{
+    height: 50vh;
+  }
+  #app_hacemos h2{
+    padding: 20px !important;
+    font-size: 7.5vh
+  }
+  #app_hacemos span{
+    font-size: 7.5vh
+  }
+  .grid2col{
+    grid-auto-columns: 100% !important
+  }
+  .grid2col > *{
+    grid-column: 1 !important
+  }
+  #equipo h2{
+    grid-column: 1 !important
+  }
+  #equipo div{
+    grid-column: 1 !important
+  }
+  .appL, .appR{
+    grid-column: 1 !important
+  }
+  .appL *, .appR * {
+    justify-content: initial;
+    text-align: initial;
+    align-items: initial;
+    align-content: initial;
+    padding-left: 30px;
+  }
+  .appL a, .appR a, .appL h5, .appR h5 {
+    padding: 0 !important;
+    margin: 10px 0
+  }
+  .appL svg, .appR svg{
+    padding: 10px
+  }
+  #app-smc > div{
+    padding: 40px 20px; 
+    grid-gap: 20px
+  }
+  p{
+    font-size: 2vh
+  }
+  .main p br{
+    display: none;
+  }
+
 }
 
 @font-face {
