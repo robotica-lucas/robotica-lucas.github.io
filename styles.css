@@ -21,13 +21,6 @@ header{
 	-o-transition:all 275ms ease, position 0ms;
 	transition:all 275ms ease, position 0ms;
 }
-/*header {
-  width: 100vw;
-  height: auto;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
-}*/
 .header2 {
   position:fixed;
   background-color: #1e6cc5;
@@ -100,6 +93,18 @@ a{
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
   user-select: none;
+}
+.contenido a {
+  display: inline-flex;
+  margin-top: 10px
+}
+.contenido i {
+  padding: 0;
+  -webkit-transition:all 350ms ease;
+	transition:all 350ms ease;
+}
+.contenido a > i {
+  padding-left: 10px;
 }
 .main a:hover{
 	background:#FFF;
@@ -206,10 +211,10 @@ li {
   grid-column: 2
 }
 .appR * {
-  justify-content: right;
-  text-align: right;
-  align-items: flex-end;
-  align-content: flex-end;
+  justify-content: initial;
+  text-align: initial;
+  align-items: initial;
+  align-content: initial;
   padding-right: 70px
 }
 #apps > div{
