@@ -1,54 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Robótica IES Lucas Mallada</title>
+        <title>Proyectos 26/4 - Robótica IES Lucas Mallada</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="../../../styles.css">
         <meta name="theme-color" content="#2163ce">
-        <script src="scripts.js"></script>
+        <script src="../../../scripts.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato|Oswald|Source+Sans+Pro|Open+Sans|Raleway|Roboto|Roboto+Mono|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
         <header>
             <div class="wrapper">
-                <a class="logo unselectable" href="#top"><b>ROBÓTICA LUCAS</b></a>
+                <a class="logo unselectable" href="https://robotica-lucas.github.io/"><b>ROBÓTICA LUCAS</b></a>
                 <nav id="navm">
                     <a href="#top">Inicio</a>
-                    <a href="taller/sesiones/26.4/proyectos.html">Sesión 26/4</a>
                 </nav>
             </div>
         </header>
         <div class="main">
             <div id="app_hacemos">
-                <h2 class="unselectable">Robótica IES Lucas Mallada<span class="intermitente">_</span></h2>
+                <h2 class="unselectable">Sesión 26 de abril<span class="intermitente">_</span></h2>
             </div>
             <div style="padding: 50px 200px">
                 <p style="font-size: 25px; font-family: Open Sans, Arial, Helvetica, sans-serif">
-                    Apuntes del curso en el enlace de abajo, por si no recordáis algo.<br>
-                    <a href="https://docs.google.com/document/d/1jadNavowYnB9FfNT0hcHKqV7fyJXKe4jlaOSAbSSSaw/edit?usp=sharing">
+                    <br><br>Tened presentes los apuntes de el enlace de abajo por si no recordáis algo (en el documento hay cosas que aún no hemos visto)<br>
+                    <a style="background: rgb(68, 118, 192)" href="https://docs.google.com/document/d/1jadNavowYnB9FfNT0hcHKqV7fyJXKe4jlaOSAbSSSaw/edit?usp=sharing">
                         Acceder a los apuntes
                         <i class="material-icons">arrow_forward</i>
                     </a>
                 </p>
+                
             </div>
 
             <div id="apps" class="contenido grid2col">
-                <!--h2 style="grid-column-start: 1; grid-column-end: 3; margin-top: 20px; margin-bottom: 30px">Ideas para la sesión de hoy</h2-->
+                <h2 style="grid-column-start: 1; grid-column-end: 3; margin-top: 20px; margin-bottom: 30px">Ideas para la sesión de hoy</h2>
                 <div class="appL" style="background: #1FC04C;">
-                    <h3>Acceder a la sesión del 26/04</h3>
-                    <p>En la sesión del viernes, propusimos los siguientes proyectos:
+                    <h3>Linterna automática programada</h3>
+                    <p>Ya intentamos hacer un prototipo de linterna, pero no llegamos a hacerla funcionar como queríamos.
+                        <br>Ahora vamos a hacer que el Arduino lea cuánta luz hay con un LDR y dependiendo de eso encenderemos un LED.
+                        <br>Se utilizan las siguientes funciones y características de Arduino:
                         <ul>
-                            <li>Linterna electrónica</li>
-                            <li>"Theremin", música que no se toca</li>
-                            <li>Reloj de arena digital</li>
-                            <li>Cruce de semáforos</li>
-                            <li>Dado de la suerte electrónico</li>
-                            <li>Música con Arduino</li>
+                            <li>analogRead(PIN_LDR)</li>
+                            <li>analogWrite(PIN_LED)</li>
                         </ul>
                     </p>
+                    <p>El LDR lo ponemos en un pin analógico y en modo INPUT. En el <code>void loop()</code> damos un valor entre 0 y 256 al LED con 
+                        <code>analogWrite(PIN_LED, VALOR)</code>, en VALOR dividimos <code>analogRead(PIN_LDR) / 4</code>, para pasar como sabemos del máximo que da <code>analogRead()</code> que es 1024 a un máximo de 256.</p>
                 </div>
-                <!--div class="appR" style="background: rgb(0, 140, 255); height: 357px">
+                <div class="appR" style="background: rgb(0, 140, 255); height: 357px">
                     
                     <h3>Reloj de arena digital</h3>
                     <p>Al igual que baja la arena de un reloj de arena, los leds se irán apagando hasta que se acabe el tiempo. Claro que se podrá volver a resetear el cronómetro con un botón.
@@ -60,13 +60,13 @@
                         </ul>
                         <br><br><br>
                     </p>
-                    <a href="taller/sesiones/26.4/reloj_arena/reloj_arena.html">
+                    <a href="reloj_arena/reloj_arena.html">
                         Ver instrucciones
                         <i class="material-icons">arrow_forward</i>
                     </a>
-                </div-->
-                <iframe style="grid-column: 2; height: 100%; width: 100%;" src="https://www.youtube.com/embed/K6KbEnGnymk?controls=2&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                <!--div class="appR" style="background: goldenrod;">
+                </div>
+                <iframe style="grid-column: 1; height: 100%; width: 100%;" src="https://www.youtube.com/embed/K6KbEnGnymk?controls=2&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class="appR" style="background: goldenrod;">
                     <h3>"Theremin", el instrumento que no se toca</h3>
                     <p>Aunque dentro de nada aprenderemos a usar un sensor de distancia en condiciones, vamos a hacerlo a nuestra manera con un LDR (resistencia sensible a la luz).
                         <br>Se utilizan las siguientes funciones de Arduino:
@@ -97,7 +97,7 @@
                     <p>(Primero construir el semáforo que aparece, al acabar se añaden otros 2 LEDs para peatones. 
                         Hay que tener en cuenta que el semáforo de peatones estará en rojo cuando el de coches esté en verde o ambar, y se pondrá verde cuando el de coches esté en rojo)</p>
                 </div>
-                <div style="grid-column: 2; height: 100%; padding: 0; background-image: url(images/Semaforo.jpg); background-size: cover"></div>
+                <div style="grid-column: 2; height: 100%; padding: 0; background-image: url(../../../images/Semaforo.jpg); background-size: cover"></div>
                 <div style="grid-column: 1; width:100%; height: 100%; padding: 0; background-image: url(images/pic-code.jpeg); background-size: cover; background-position: center; background-attachment: fixed;">
                 </div>
                 <div class="appL" style="background: rgb(219, 123, 12)">
@@ -110,7 +110,7 @@
                             <li>digitalWrite(PIN_LED, ESTADO)</li>
                         </ul>
                     </p>
-                    <a href="/taller/sesiones/26.4/dados/dados.html">
+                    <a href="dados/dados.html">
                         Ver instrucciones
                         <i class="material-icons">arrow_forward</i>
                     </a>
@@ -128,7 +128,7 @@
                         Ver tutorial
                         <i class="material-icons">arrow_forward</i>
                     </a>
-                </div-->
+                </div>
                 <div id="app-smc">
                     <h3>¿Qué hay que hacer?</h3>
                     <p>Leed con atención las siguientes instrucciones y ¡manos a la obra!</p>
@@ -141,7 +141,7 @@
                             <h4 style="text-align: left">Ver los vídeos que hemos incluido</h4>
                             <p style="text-align: left">También podéis investigar por vuestra cuenta proyectos fáciles para hacer en Arduino.</p>
                         </div>
-                        <img style="width:100px;height:100px;grid-column: 1" src="images/think.svg">
+                        <img style="width:100px;height:100px;grid-column: 1" src="../../../images/think.svg">
                     </img>
                         <div style="grid-column: 2;">
                             <h4 style="text-align: left">Pensar cómo hacer un robot sencillo</h4>
