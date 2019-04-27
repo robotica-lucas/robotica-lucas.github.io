@@ -8,13 +8,25 @@
   align-items: center;
 }
 code{
-  font-size: 20px;
+  font-size: 16px;
   display: inline-flex;
+  
   text-align: start;
   align-content: flex-start;
-  max-width: 700px;
   padding: 4px;
-  box-shadow:0px 0px 0px 1px black inset;
+}
+pre {
+  border-left: 6px solid rgb(100, 100, 255);
+  background-color: lightgray;
+  display: flex;
+  padding: 5px;
+  margin-left: 5px;
+  justify-content: start
+}
+pre code{
+  text-align: start;
+  width: 100%;
+  padding: 0;
 }
 header{
   -moz-box-shadow: 0;
@@ -71,7 +83,6 @@ header .logo{
 
 header nav{
 	float: right;
-	display: inline-block;
 	line-height:140px;	
 	-webkit-transition:all 350ms ease;
 	-o-transition:all 350ms ease;
@@ -203,6 +214,9 @@ header nav a:hover{
   padding-top: 120px;
   margin-top: -120px
 }
+ul *{
+  font-family: 'Open Sans', Helvetica, sans-serif;
+}
 li {
   padding-left: 0px !important;
   margin-left: 20px;
@@ -280,7 +294,7 @@ li {
   padding: 40px 200px; 
   grid-gap: 40px
 }
-h2, span {
+h2, h2 span {
   font-size: 70px;
   height: auto;
   font-weight: normal;

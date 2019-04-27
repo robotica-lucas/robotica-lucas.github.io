@@ -19,7 +19,13 @@
         padding: 5px;
         margin-left: 5px;
       }
+      pre code{
+        font-size: 16px
+      }
     </style>
+    <link rel="stylesheet" href="../../../../highlight/styles/arduino-light.css">
+    <script src="../../../../highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </head>
 
   <body>
@@ -54,28 +60,28 @@
       <h2>Programación</h2>
       <p>El programa que vas a escribir requiere expresiones <em>if</em>, que es inglés para <em>si</em> sin una tilde. Funciona así:
       <pre><code>if (CONDICIÓN) {
-        HACER ESTO
+    // HACER ALGO (LO QUE PONGA AQUÍ DENTRO)
 }</code></pre>
       La condición de dentro suele ser una expresión matemática, que es lo que vas a utilizar ahora. Por ejemplo, si escribieses <code>3 &lt 5</code> el programa entre llaves siempre se ejecutará, pues 3 siempre es menor a 5. Si quisieses ver si una variable <code>valor</code> es mayor o igual a 10 escribirías en la condición <code>valor &gt= 10</code> y así el código se ejecutará si la variable sea, por ejemplo, 11, 69 e incluso 10, pues el = al lado del &gt indica que el 10 también se cuenta.
         <br><br>En el bloque <code>setup</code> empezaremos por indicarle al Arduino para que queremos utilizar los pines que hemos conectado con la función <code>pinMode(PIN, MODE)</code>. De forma que debería quedar:
       <pre><code>void setup() {
-        pinMode(8, INPUT);
+    pinMode(8, INPUT);
 
-        pinMode(2, OUTPUT);
-        pinMode(3, OUTPUT);
-        pinMode(4, OUTPUT);
-        pinMode(5, OUTPUT);
-        pinMode(6, OUTPUT);
-        pinMode(7, OUTPUT);
+    pinMode(2, OUTPUT);
+    pinMode(3, OUTPUT);
+    pinMode(4, OUTPUT);
+    pinMode(5, OUTPUT);
+    pinMode(6, OUTPUT);
+    pinMode(7, OUTPUT);
 }</code></pre>
       Los pines de los LEDs, del 2 al 6 (dependiendo de cuantos LEDs hayas puesto, pon solo los pins que utilices), van a encender y apagar los LEDs, conque su modo es <code>OUTPUT</code>. El pin 8 es para el botón y verá cuando este está presionado o no, conque su modo es <code>INPUT</code>.
         <br><br>Para medir el tiempo necesitaremos una variable, conque encima del bloque <code>setup</code> vamos a crear una llamada tiempo, t, x, time, o como te apetezca, pero recuerda que no puede tener espacios ni caracteres raros ni empezar por un número o el Arduino no lo entenderá. Lo que haremos será que cada vez que se repita el bloque <code>loop</code> esta variable disminuya de 1 en 1, así podremos comprobar cuánto tiempo ha pasado. Por esto no vamos a necesitar decimales en el número, con que utilizaremos un entero, <code>int</code>. Querremos empezar a contar de algo como 20 segundos o como quieras, conque ese será el valor con el que crearemos la variable. Al final, tu código debe de quedar así:
-      <pre><code>int TU_VARIABLE = 20;
+      <pre><code class="arduino">int TU_VARIABLE = 20;
 
 void setup() {
-  .
-  .
-  .</code></pre>
+    // El código de antes
+}
+  </code></pre>
       En el bloque <code>loop</code> querremos hacer tres cosas:
       <ol>
         <li>Comprobar si se ha pulsado el botón</li>
@@ -83,20 +89,20 @@ void setup() {
         <li>Aumentar la variable del tiempo</li>
       </ol>
       Para comprobar si el botón esta pulsado utilizamos la función <code>digitalRead(PIN)</code>, y como conectamos el botón al pin 8 sustituímos <em>PIN</em> por 8. Podemos utilizar los <em>ifs</em> para comprobar si <code>digitalRead(PIN)</code> es <code>HIGH</code> si el botón está pulsado o <code>LOW</code> si no. Para esto utilizaremos, no un igual, sino dos, porque la mayoría de lenguajes de programación utilizan <code>=</code> para asignar valores a variables mientras que <code>==</code> compara lo que pongas a ambos lados de los iguales tal y como lo harías en clase de mates con un solo igual. Si no lo entiendes muy bien sencillamente recuerda que un igual es para variables, dos para <em>ifs</em>. Entonces por ahora el bloque <code>loop</code> debería estar así:
-      <pre><code>function loop() {
-        if (digitalRead(8) == HIGH) {
+      <pre><code>void loop() {
+    if (digitalRead(8) == HIGH) {
 
-        }
+    }
 }</code></pre>
       Dentro de el bloque if escribimos lo que se ejecutará si se presiona el botón, que es resetear el tiempo a el tiempo máximo que eligimos antes. En el caso de que sean 20 segundos:
       <pre><code>if (digitalRead(8) == HIGH) {
-        TU_VARIABLE = 20;
+    TU_VARIABLE = 20;
 }</code></pre>
       El siguiente paso es comprobar cada LED y encenderlo o apagarlo en función del tiempo que halla pasado. Para esto utilizamos &lt y &gt en los ifs, de forma que si el tiempo empezaba a los 20s y queremos que el primer LED se apague a las 5 segundos escribimos algo así:
       <pre><code>if (tiempo >= 15) {
-        digitalWrite(2, HIGH);
+    digitalWrite(2, HIGH);
 } else {
-        digitalWrite(2, LOW);
+    digitalWrite(2, LOW);
 }</code></pre>
       <pre style="display: none;"></pre>
       El bloque <code>else</code> despues del if es algo nuevo. Es bastante útil, pues sirve para ejecutar código cuando la condición del if anterior no se ha cumplido en vez de volver a escribir otro bloque if con la condición contraria, de forma que ahora cuando el tiempo NO sea mayor o igual a 15, es decir, cuando sea menor a 15, el LED se apague.
