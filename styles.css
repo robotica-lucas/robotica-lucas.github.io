@@ -481,15 +481,3 @@ input[type=submit]:active{
   font-family: Futura;
   src: url('fonts/FuturaBT-Medium.otf') format('woff'), url('fonts/FuturaBT-Medium.otf') format('opentype'), url('fonts/FuturaBT-Medium.otf') format('truetype');
 }
-@font-face {
-  font-family: 'Roboto Thin';
-  font-style: normal;
-  font-weight: 100;
-  src: url('fonts/Roboto-Thin.ttf') format('truetype'), url('fonts/Roboto-Thin.ttf') format('opentype');
-}
-@font-face {
-  font-family: 'Roboto Light';
-  font-style: normal;
-  font-weight: 100;
-  src: url('fonts/Roboto-Light.ttf') format('truetype'), url('fonts/Roboto-Light.ttf') format('opentype');
-}
