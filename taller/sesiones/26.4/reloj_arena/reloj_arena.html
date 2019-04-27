@@ -70,7 +70,7 @@
 }</code></pre>
       Los pines de los LEDs, del 2 al 6 (dependiendo de cuantos LEDs hayas puesto, pon solo los pins que utilices), van a encender y apagar los LEDs, conque su modo es <code>OUTPUT</code>. El pin 8 es para el botón y verá cuando este está presionado o no, conque su modo es <code>INPUT</code>.
         <br><br>Para medir el tiempo necesitaremos una variable, conque encima del bloque <code>setup</code> vamos a crear una llamada tiempo, t, x, time, o como te apetezca, pero recuerda que no puede tener espacios ni caracteres raros ni empezar por un número o el Arduino no lo entenderá. Lo que haremos será que cada vez que se repita el bloque <code>loop</code> esta variable disminuya de 1 en 1, así podremos comprobar cuánto tiempo ha pasado. Por esto no vamos a necesitar decimales en el número, con que utilizaremos un entero, <code>int</code>. Querremos empezar a contar de algo como 20 segundos o como quieras, conque ese será el valor con el que crearemos la variable. Al final, tu código debe de quedar así:
-      <pre><code>int TU_VARIABLE = 0;
+      <pre><code>int TU_VARIABLE = 20;
 
 void setup() {
   .
