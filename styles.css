@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -95,27 +96,39 @@ a{
   line-height: normal;
   border-radius:25px;
   font-size:20px;	
-	font-family: Lato, Helvetica, sans-serif;
 	-webkit-transition:all 350ms ease;
 	transition:all 350ms ease;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
   user-select: none;
 }
-.contenido a {
+.main a.opuesto, .main a.opuesto *{
+  color: rgb(16, 90, 201);
+}
+.main a.opuesto{
+  box-shadow:0px 0px 0px 3px rgb(16, 90, 201) inset;
+}
+.main a.opuesto:hover {
+	background:rgb(16, 90, 201) ;
+	color: white ;
+}
+.main a.opuesto:hover *{
+	color: white ;
+}
+.centro {
   display: inline-flex;
   margin-top: 10px
 }
-.contenido i {
+.centro i {
   padding: 0;
   -webkit-transition:all 350ms ease;
 	transition:all 350ms ease;
 }
-.contenido a > i {
+.centro > i {
   padding-left: 10px;
 }
 .main a:hover{
-	background:#FFF;
+	background:white;
 	color: rgb(31, 106, 192);
 }
 .main a:hover *{
