@@ -337,9 +337,9 @@ form{
   align-self: center;
 }
 input:not([type=submit]), textarea{
-  min-width: 500px;
+  min-width: 700px;
   min-height: 24px;
-  max-width: 500px;
+  max-width: 700px;
   text-align: left;
 	font-size:18px;
 	padding:10px 18px;
@@ -347,13 +347,20 @@ input:not([type=submit]), textarea{
 	margin-left: 20px;
 	display:block;
 	font-family: 'Roboto', Arial, Helvetica, sans-serif;
-	width: 500px;
+	width: 700px;
   border:none;
   border: 1px solid black;
 	border-radius: 4px;
 	outline: 0;
 	background-position: center;
   transition: border-radius 275ms, border 275ms;
+}
+textarea.codigo {
+  min-height: 100px;
+}
+textarea.codigo:hover, textarea.codigo:focus {
+  min-height: 100px;
+	border-radius: 10px;
 }
 input:not([type=submit]):hover, input:not([type=submit]):focus, textarea:hover, textarea:focus{
   border: 1px solid rgb(9, 117, 206);
