@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="es">
     <head>
         <title>Robótica IES Lucas Mallada</title>
         <meta charset="utf-8">
@@ -15,6 +15,8 @@
                 <a class="logo unselectable" href="#top"><b>ROBÓTICA LUCAS</b></a>
                 <nav id="navm">
                     <a href="#top">Inicio</a>
+                    <a href="https://gist.github.com/alexbertis/b9b9dc71c6b1f471a0cdd0e0a1b8c24c">Código Servo</a>
+                    <a href="https://www.prometec.net/buzzers/">Tutorial Música</a>
                     <a href="taller/sesiones/26.4/proyectos.html">Sesión 26/4</a>
                 </nav>
             </div>
@@ -25,36 +27,57 @@
             </div>
             <div style="padding: 50px 200px">
                 <p style="font-size: 25px; font-family: Open Sans, Arial, Helvetica, sans-serif">
-                    Apuntes del curso en el enlace de abajo, por si no recordáis algo.<br>
-                    <a class="centro opuesto" href="https://docs.google.com/document/d/1jadNavowYnB9FfNT0hcHKqV7fyJXKe4jlaOSAbSSSaw/edit?usp=sharing">
-                        Acceder a los apuntes
-                        <i class="material-icons">arrow_forward</i>
-                    </a>
+                    Apuntes del curso en el enlace de abajo, por si no recordáis algo.
                 </p>
+                <a class="centro opuesto" href="https://docs.google.com/document/d/1jadNavowYnB9FfNT0hcHKqV7fyJXKe4jlaOSAbSSSaw/edit?usp=sharing">
+                    Acceder a los apuntes
+                    <i class="material-icons">arrow_forward</i>
+                </a>
             </div>
 
             <div id="apps" class="contenido grid2col">
                 <!--h2 style="grid-column-start: 1; grid-column-end: 3; margin-top: 20px; margin-bottom: 30px">Ideas para la sesión de hoy</h2-->
                 <div class="appL" style="background: #1FC04C;">
                     <h3>Acceder a la sesión del 26/04</h3>
-                    <p>En la sesión del viernes, propusimos los siguientes proyectos:
-                        <ul>
-                            <li>Linterna electrónica</li>
-                            <li>"Theremin", música que no se toca</li>
-                            <li>Reloj de arena digital</li>
-                            <li>Cruce de semáforos</li>
-                            <li>Dado de la suerte electrónico</li>
-                            <li>Música con Arduino</li>
-                        </ul>
+                    <p>En esa sesión propusimos los siguientes proyectos:
                     </p>
+                    <ul>
+                        <li>Linterna electrónica</li>
+                        <li>"Theremin", música que no se toca</li>
+                        <li>Reloj de arena digital</li>
+                        <li>Cruce de semáforos</li>
+                        <li>Dado de la suerte electrónico</li>
+                        <li>Música con Arduino</li>
+                    </ul>
                     <a class="centro" href="taller/sesiones/26.4/proyectos.html">
                         Ir a la sesión
                         <i class="material-icons">arrow_forward</i>
                     </a>
                 </div>
-                <iframe style="grid-column: 2; height: 100%; width: 100%;" src="https://www.youtube.com/embed/K6KbEnGnymk?controls=2&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                
-                <div id="app-smc">
+                <iframe style="grid-column: 2; height: 100%; width: 100%; border: 0" src="https://www.youtube.com/embed/K6KbEnGnymk?controls=2&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class="appL" style="background: rgb(192, 103, 31);">
+                    <h3>Música con los Buzzers</h3>
+                    <p>El 30 de abril estuvimos utilizando los buzzers piezoeléctricos como unos altavoces con los que podíamos hacer música. <br>
+                        Primero hicimos que tocara 2 notas, cada una durante 1 o 2 segundos, y después intentamos hacer algunas canciones. <br>
+                        Algunos ejemplos fáciles que se suelen hacer son la canción de <i>Piratas del Caribe</i> o la de <i>Star Wars</i>, aunque se puede "traducir" cualquier partitura para ponerla en Arduino.                    
+                    </p>
+                    <a class="centro" href="https://www.prometec.net/buzzers/">
+                        Acceder a un tutorial
+                        <i class="material-icons">arrow_forward</i>
+                    </a>
+                </div>
+                <div class="appR" style="background: rgb(3, 133, 194);">
+                    <h3>Utilizando los Servomotores</h3>
+                    <p>El viernes 3 de mayo aprendimos a usar los Servos, unos motores especiales que, en la mayoría de los casos, pueden girar en un ángulo de 180 grados. <br>
+                        Tienen un funcionamiento distinto al de los motores normales, y en Arduino vienen incluidas unas funciones que nos ayudan a usarlo: <code>miServo.attach(PIN);</code> y <code>miServo.write(ÁNGULO);</code> <br>
+                        Gracias a estas funciones, no necesitamos utilizar ninguna otra como <code>pinMode</code> o <code>analogWrite</code>, ya que el Arduino se encarga de hacer los cálculos para llevar al motor al ángulo que nosotros pongamos.
+                    </p>
+                    <a class="centro" href="https://gist.github.com/alexbertis/b9b9dc71c6b1f471a0cdd0e0a1b8c24c">
+                        Ver el código
+                        <i class="material-icons">arrow_forward</i>
+                    </a>
+                </div>
+                <!--div id="app-smc">
                     <h3>¿Qué hay que hacer?</h3>
                     <p>Leed con atención las siguientes instrucciones y ¡manos a la obra!</p>
                     <div>
@@ -80,7 +103,7 @@
                             <p style="text-align: left">Con vuestra placa Arduino, una Protoboard, los cables y el resto de materiales que hayáis escogido, montad el robot</p>
                         </div>
                     </div>
-                </div>
+                </div-->
             </div>
             <div id="contacto" class="contenido">
                 <h2 style="padding: 20px">Sube tu código de hoy</h2>

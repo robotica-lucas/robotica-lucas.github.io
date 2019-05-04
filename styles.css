@@ -228,6 +228,7 @@ li {
 .grid2col{
   display: grid;
   grid-auto-columns: 50% 50%;
+  align-items: initial;
 }
 #equipo div{
   padding: 30px 100px
