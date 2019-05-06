@@ -3,9 +3,10 @@
     <head>
         <title>Proyectos 26/4 - Robótica IES Lucas Mallada</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="../../../styles.css">
+        <base href="../../..">
+        <link rel="stylesheet" href="styles.css">
         <meta name="theme-color" content="#2163ce">
-        <script src="../../../scripts.js"></script>
+        <script src="scripts.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato|Oswald|Source+Sans+Pro|Open+Sans|Raleway|Roboto|Roboto+Mono|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
@@ -24,13 +25,12 @@
             </div>
             <div style="padding: 50px 200px">
                 <p style="font-size: 25px; font-family: Open Sans, Arial, Helvetica, sans-serif">
-                    <br><br>Tened presentes los apuntes de el enlace de abajo por si no recordáis algo (en el documento hay cosas que aún no hemos visto)<br>
+                    Tened presentes los apuntes de el enlace de abajo por si no recordáis algo (en el documento hay cosas que aún no hemos visto)<br>
                     <a class="centro opuesto" href="https://docs.google.com/document/d/1jadNavowYnB9FfNT0hcHKqV7fyJXKe4jlaOSAbSSSaw/edit?usp=sharing">
                         Acceder a los apuntes
                         <i class="material-icons">arrow_forward</i>
                     </a>
                 </p>
-                
             </div>
 
             <div id="apps" class="contenido grid2col">
@@ -95,9 +95,7 @@
                     <p>(Primero construir el semáforo que aparece, al acabar se añaden otros 2 LEDs para peatones. 
                         Hay que tener en cuenta que el semáforo de peatones estará en rojo cuando el de coches esté en verde o ambar, y se pondrá verde cuando el de coches esté en rojo)</p>
                 </div>
-                <div style="grid-column: 2; height: 100%; padding: 0; background-image: url(../../../images/Semaforo.jpg); background-size: cover"></div>
-                <div style="grid-column: 1; width:100%; height: 100%; padding: 0; background-image: url(images/pic-code.jpeg); background-size: cover; background-position: center; background-attachment: fixed;">
-                </div>
+                <div style="grid-column: 2; height: 100%; padding: 0; background-image: url(images/Semaforo.jpg); background-size: cover"></div>
                 <div class="appL" style="background: rgb(219, 123, 12)">
                     <h3>El dado electrónico</h3>
                     <p>Programaremos un dado con 6 LEDs en las que cada una represente un número.
@@ -113,7 +111,7 @@
                         <i class="material-icons">arrow_forward</i>
                     </a>
                 </div>
-                <div class="appR" style="background: rgb(34, 155, 75); height: 80%;">
+                <div class="appR" style="background: rgb(34, 155, 75);">
                     <h3><b>VALIENTE:</b> Música con Arduino</h3>
                     <p>El cableado de esta opción es mucho más fácil que los demás, pero la programación es dura: se utilizan listas, algo que aún no hemos visto.
                         <br>Sin embargo, si os apetece, podéis echar un vistazo al código y la explicación de la página web que os dejamos.
@@ -139,7 +137,7 @@
                             <h4 style="text-align: left">Ver los vídeos que hemos incluido</h4>
                             <p style="text-align: left">También podéis investigar por vuestra cuenta proyectos fáciles para hacer en Arduino.</p>
                         </div>
-                        <img style="width:100px;height:100px;grid-column: 1" src="../../../images/think.svg">
+                        <img style="width:100px;height:100px;grid-column: 1" src="images/think.svg">
                     </img>
                         <div style="grid-column: 2;">
                             <h4 style="text-align: left">Pensar cómo hacer un robot sencillo</h4>
@@ -155,20 +153,6 @@
                     </div>
                 </div>
             </div>
-            <!--div id="contacto" class="contenido">
-                <h2 style="padding: 20px">Buzón de sugerencias</h2>
-                <div style="display: flex; margin-top: 10px">
-                    <form action="https://formspree.io/brontappsdev@gmail.com" method="POST">
-                        <input type="text" name="name" placeholder="Nombre *" required>
-                        <input type="email" name="_replyto" placeholder="Correo electrónico *" required>
-                        <input type="tel" name="telf" placeholder="Teléfono">
-                        <input type="text" name="titulo" placeholder="Título *" required>
-                        <textarea name="texto" placeholder="Mensaje *" required></textarea>
-                        <input type="text" name="_gotcha" style="display:none" />
-                        <input type="submit" value="Enviar">
-                    </form>
-                </div>
-            </div-->
         </div>
         <footer>
             <p>© 2019</p>

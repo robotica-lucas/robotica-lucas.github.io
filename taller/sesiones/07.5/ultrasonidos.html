@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sensor de ultrasonidos - Robótica IES Lucas Mallada</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../../../styles.css">
+        <meta name="theme-color" content="#2163ce">
+        <script src="../../../scripts.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato|Oswald|Source+Sans+Pro|Open+Sans|Raleway|Roboto|Roboto+Mono|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../../../highlight/styles/arduino-light.css">
+        <style>
+            #el_sensor, #el_codigo {
+                background-color: whitesmoke
+            }
+            #el_sensor p {
+                font-size: 20px;
+                margin-bottom: 10px;
+                padding: 16px 24px;
+            }
+        </style>
+        <script src="../../../highlight/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+        <header>
+            <div class="wrapper">
+                <a class="logo unselectable" href="https://robotica-lucas.github.io/"><b>ROBÓTICA LUCAS</b></a>
+                <nav id="navm">
+                    <a href="#top">Inicio</a>
+                    <a href="#el_sensor">El sensor</a>
+                    <a href="#el_circuito">El circuito</a>
+                    <a href="#el_codigo">El código</a>
+                </nav>
+            </div>
+        </header>
+        <div class="main">
+            <div id="app_hacemos">
+                <h2 class="unselectable">Sesión 7 de mayo<span class="intermitente">_</span><br>Sensor de ultrasonidos</h2>
+            </div>
+            <div style="padding: 50px 200px">
+                <p style="font-size: 25px; font-family: Open Sans, Arial, Helvetica, sans-serif">
+                    Tened presentes los apuntes de el enlace de abajo por si no recordáis algo (en el documento hay cosas que aún no hemos visto)<br>
+                    <a class="centro opuesto" href="https://docs.google.com/document/d/1jadNavowYnB9FfNT0hcHKqV7fyJXKe4jlaOSAbSSSaw/edit?usp=sharing">
+                        Acceder a los apuntes
+                        <i class="material-icons">arrow_forward</i>
+                    </a>
+                </p>                
+            </div>
+
+            <div class="contenido">
+                <div id="el_sensor" style="padding: 20px 15%;">
+                    <h2 class="espaciado">¿Cómo funciona un sensor de distancia por ultrasonidos?</h2>
+                    <p class="cardview">Un sensor de distancia por ultrasonidos, como dice su nombre, utiliza ultrasonidos para permitirnos averiguar la distancia que hay hasta el primer objeto sólido que haya delante del sensor.<br>
+                        Dentro de las ondas del sonido existe este tipo, los ultrasonidos, que los humanos no somos capaces de oír (generalmente), 
+                        pero que funcionan igual en el sentido de cómo se extienden y propagan, por lo tanto podemos decir que tenemos un pequeño altavoz que no podemos oír.
+                    </p>
+                    <p class="cardview">
+                        Los ultrasonidos viajan por el aire a la misma velocidad que el sonido (340 metros por segundo, esta velocidad nunca cambia).<br>
+                        Por otro lado tenemos un detector, que es como un micrófono que también detecta estos ultrasonidos.
+                    </p>
+                    <p class="cardview">
+                        Por tanto, si lanzamos un "pitido inaudible" desde nuestro <i>altavoz</i> ultrasónico y medimos cuánto tiempo le cuesta a ese sonido regresar al <i>micrófono</i>, 
+                        ¡PODREMOS SABER LA DISTANCIA ENTRE EL SENSOR Y CUALQUIER COSA QUE HAYA DELANTE SUYO!
+                    </p>
+                    <img src="images/hc-sr04.png" style="width: 100%">
+                </div>
+                <div id="el_circuito" style="padding: 20px 15%;">
+                    <h2 class="espaciado">¿Cómo montamos el circuito?</h2>
+                    <p class="cardview">El sensor tiene cuatro cables, por tanto necesitamos 4 cables. Podemos usar la breadboard o montar el sensor directamente a los cables. No usaremos resistencias ni otros elementos.
+                    </p>
+                    <div class="cardview">
+                        <p>Los cables que hay en el sensor son los siguientes en orden de izquierda a derecha como se ve en la imagen:</p>
+                        <ul style="margin-top: 10px">
+                            <li><b>VCC</b> (voltaje a 5V): la energía que necesita para funcionar.</li>
+                            <li><b>TRIG</b> (a un pin digital con el símbolo <code>~</code>): por este pin ENVIAREMOS la señal/sonido (nuestro altavoz).</li>
+                            <li><b>ECHO</b> (a otro pin digital con el símbolo <code>~</code>): por este pin RECIBIREMOS DE VUELTA la señal/sonido (nuestro micrófono).</li>
+                            <li><b>GND</b> (negativo o tierra): el cable negativo de siempre.</li>
+                        </ul>
+                        <p style="margin-top: 20px;">Podéis verlo montado en la siguiente imagen:</p>
+                    </div>
+                    <img src="../../../images/ultrasonido.png" style="width: 100%">
+                </div>
+                <div id="el_codigo" style="padding: 20px 15%;">
+                    <h2 class="espaciado">¿Y el código?</h2>
+                    <p class="cardview">Como el código para hacer que Arduino nos diga la distancia es algo largo, vamos a explicar brevemente lo que hay que hacer y por si acaso dejaremos el código debajo.
+                    </p>
+                    <ol class="cardview">
+                        <li>Preparar las variables del número de los pines a los que estará conectado el sensor. Las pondremos fuera del <code>void setup()</code> (arriba de todo) y las llamaremos <code>int emitePin = 11;</code> y <code>int recibePin = 10;</code>, respectivamente.</li>
+                        <li>Pondremos también la variable del número (en centímetros) de la distancia. Al principio no le pondremos ningún valor: <code>long distancia;</code></li>
+                        <li>DENTRO del <code>void setup()</code> pondremos los modos de los pines: el que emite estará en modo <code>OUTPUT</code> y el que recibe en modo <code>INPUT</code>, usaremos las variables en vez de los números.</li>
+                        <li>Para que el Arduino nos pase los datos a través del ordenador, iniciaremos la comunicación Serial con <code>Serial.begin(9600);</code></li>
+                        <li>DENTRO DEL <code>void loop()</code> enviaremos la señal durante 10 <b>MICRO</b>segundos (1 microsegundo = 0,000001 segundos o 0,001 milisegundos):
+                        <pre><code>
+        digitalWrite(emitePin, LOW);
+        delayMicroseconds(2);
+        
+        digitalWrite(emitePin, HIGH);
+        delayMicroseconds(10);
+        
+        digitalWrite(emitePin, LOW);
+                        </code></pre></li>
+                        <li>Ahora usaremos una <b><i>NUEVA</i></b> función de Arduino que nos dice cúantos <b>microsegundos</b> pasan desde que se llama a la función hasta que el valor que llega al pin cambia.<br>
+                            En nuestro caso, no llegará nada de electricidad hasta que vuelva la onda. Cuando lo haga, lo que el pin lea dejará de ser <code>LOW</code> y será <code>HIGH</code>, entonces la función nos dará el tiempo.
+                        <pre><code>
+        long duracion = pulseIn(recibePin, HIGH);
+
+        // Calcular la distancia (en cm) basada en la velocidad del sonido
+        distancia = duracion * (340 / 10000) / 2;       // PASAR DE METROS/SEGUNDO A CM/MICROSEGUNDO (340 * 100 / 1000000)
+                                                        // Y LUEGO ENTRE 2 PARA PASAR DEL RECORRIDO DE IDA Y VUELTA A SOLO LA IDA
+                        </code></pre></li>
+                        <li>Si os fijáis bien, hemos utilizado la velocidad del sonido y hemos dividido para 2. ¿Por qué? Porque la onda tiene que ir y volver, y nosotros solo queremos la distancia "de ida" y no el total de ida y vuelta.</li>
+                        <li>Ahora, por último pero no menos importante, <b>¡queremos saber la distancia y que no se la quede solo Arduino!</b> Para eso, usaremos una función que ya hemos visto, y vamos a darle un pequeño descanso de 50 milisegundos:
+                        <pre><code>
+        Serial.println(distancia + " centimetros");
+        delay(50);
+                        </code></pre></li>
+                    </ol>
+                    <div class="cardview">
+                        <p style="margin-bottom: 20px">Este es el código completo:</p>
+                        <pre><code>
+int recibePin = 10;  // Echo Pin
+int emitePin = 11;  // Trigger Pin
+
+long distancia;  //Duración usada para calcular la distancia
+
+void setup() {
+    Serial.begin(9600);
+    pinMode(emitePin, OUTPUT);
+    pinMode(recibePin, INPUT);
+}
+
+void loop() {
+    digitalWrite(emitePin, LOW);
+    delayMicroseconds(2);
+
+    digitalWrite(emitePin, HIGH);
+    delayMicroseconds(10);
+
+    digitalWrite(emitePin, LOW);
+    long duracion = pulseIn(recibePin, HIGH);
+
+    //Calcular la distancia (en cm) basada en la velocidad del sonido
+    distancia = duracion * (340 / 10000) / 2;       // DIVIDIMOS 340 / 10000 AL PASAR DE METROS/SEGUNDO A CM/MICROSEGUNDO (340 * 100 / 1000000)
+                                                    // Y LUEGO ENTRE 2 PARA PASAR DEL RECORRIDO DE IDA Y VUELTA A SOLO LA IDA
+
+    Serial.println(distancia + " centimetros");
+    delay(50);
+}
+                        </code></pre>
+                    </div>
+                </div>
+
+            </div>
+            <div id="contacto" class="contenido">
+                <h2 style="padding: 20px">Sube tu código de hoy</h2>
+                <div style="display: flex; margin-top: 10px">
+                    <form action="https://formspree.io/alexberti02@gmail.com" method="POST">
+                        <input type="text" name="name" placeholder="Nombre *" required>
+                        <input type="email" name="_replyto" placeholder="Correo electrónico">
+                        <textarea name="texto" placeholder="Mensaje o código *" class="codigo" required></textarea>
+                        <input type="text" name="_gotcha" style="display:none" />
+                        <input type="submit" value="Enviar">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>© 2019</p>
+        </footer>
+    </body>
+</html>
