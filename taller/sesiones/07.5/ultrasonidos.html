@@ -107,7 +107,7 @@
 
         // Calcular la distancia (en cm) basada en la velocidad del sonido
         distancia = duracion * (340.0 / 10000.0) / 2.0;       // PASAR DE METROS/SEGUNDO A CM/MICROSEGUNDO (340 * 100 / 1000000)
-                                                        // Y LUEGO ENTRE 2 PARA PASAR DEL RECORRIDO DE IDA Y VUELTA A SOLO LA IDA
+                                                              // Y LUEGO ENTRE 2 PARA PASAR DEL RECORRIDO DE IDA Y VUELTA A SOLO LA IDA
                         </code></pre></li>
                         <li>Si os fijáis bien, hemos utilizado la velocidad del sonido y hemos dividido para 2. ¿Por qué? Porque la onda tiene que ir y volver, y nosotros solo queremos la distancia "de ida" y no el total de ida y vuelta.</li>
                         <li>Ahora, por último pero no menos importante, <b>¡queremos saber la distancia y que no se la quede solo Arduino!</b> Para eso, usaremos una función que ya hemos visto, y vamos a darle un pequeño descanso de 50 milisegundos:
@@ -142,7 +142,7 @@ void loop() {
 
     //Calcular la distancia (en cm) basada en la velocidad del sonido
     distancia = duracion * (340.0 / 10000.0) / 2.0;       // DIVIDIMOS 340 / 10000 AL PASAR DE METROS/SEGUNDO A CM/MICROSEGUNDO (340 * 100 / 1000000)
-                                                    // Y LUEGO ENTRE 2 PARA PASAR DEL RECORRIDO DE IDA Y VUELTA A SOLO LA IDA
+                                                          // Y LUEGO ENTRE 2 PARA PASAR DEL RECORRIDO DE IDA Y VUELTA A SOLO LA IDA
 
     Serial.print(distancia); Serial.println(" centimetros");
     delay(50);
