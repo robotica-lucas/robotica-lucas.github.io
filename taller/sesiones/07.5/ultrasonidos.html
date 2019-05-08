@@ -45,14 +45,14 @@
                         Acceder a los apuntes
                         <i class="material-icons">arrow_forward</i>
                     </a>
-                </p>                
+                </p>
             </div>
 
             <div class="contenido">
                 <div id="el_sensor" style="padding: 20px 15%;">
                     <h2 class="espaciado">¿Cómo funciona un sensor de distancia por ultrasonidos?</h2>
                     <p class="cardview">Un sensor de distancia por ultrasonidos, como dice su nombre, utiliza ultrasonidos para permitirnos averiguar la distancia que hay hasta el primer objeto sólido que haya delante del sensor.<br>
-                        Dentro de las ondas del sonido existe este tipo, los ultrasonidos, que los humanos no somos capaces de oír (generalmente), 
+                        Dentro de las ondas del sonido existe este tipo, los ultrasonidos, que los humanos no somos capaces de oír (generalmente),
                         pero que funcionan igual en el sentido de cómo se extienden y propagan, por lo tanto podemos decir que tenemos un pequeño altavoz que no podemos oír.
                     </p>
                     <p class="cardview">
@@ -60,7 +60,7 @@
                         Por otro lado tenemos un detector, que es como un micrófono que también detecta estos ultrasonidos.
                     </p>
                     <p class="cardview">
-                        Por tanto, si lanzamos un "pitido inaudible" desde nuestro <i>altavoz</i> ultrasónico y medimos cuánto tiempo le cuesta a ese sonido regresar al <i>micrófono</i>, 
+                        Por tanto, si lanzamos un "pitido inaudible" desde nuestro <i>altavoz</i> ultrasónico y medimos cuánto tiempo le cuesta a ese sonido regresar al <i>micrófono</i>,
                         ¡PODREMOS SABER LA DISTANCIA ENTRE EL SENSOR Y CUALQUIER COSA QUE HAYA DELANTE SUYO!
                     </p>
                     <img src="../../../images/hc-sr04.png" style="width: 100%">
@@ -87,17 +87,17 @@
                     </p>
                     <ol class="cardview">
                         <li>Preparar las variables del número de los pines a los que estará conectado el sensor. Las pondremos fuera del <code>void setup()</code> (arriba de todo) y las llamaremos <code>int emitePin = 11;</code> y <code>int recibePin = 10;</code>, respectivamente.</li>
-                        <li>Pondremos también la variable del número (en centímetros) de la distancia. Al principio no le pondremos ningún valor: <code>long distancia;</code></li>
+                        <li>Pondremos también la variable del número (en centímetros) de la distancia. Al principio no le pondremos ningún valor: <code>float distancia;</code></li>
                         <li>DENTRO del <code>void setup()</code> pondremos los modos de los pines: el que emite estará en modo <code>OUTPUT</code> y el que recibe en modo <code>INPUT</code>, usaremos las variables en vez de los números.</li>
                         <li>Para que el Arduino nos pase los datos a través del ordenador, iniciaremos la comunicación Serial con <code>Serial.begin(9600);</code></li>
                         <li>DENTRO DEL <code>void loop()</code> enviaremos la señal durante 10 <b>MICRO</b>segundos (1 microsegundo = 0,000001 segundos o 0,001 milisegundos):
                         <pre><code>
         digitalWrite(emitePin, LOW);
         delayMicroseconds(2);
-        
+
         digitalWrite(emitePin, HIGH);
         delayMicroseconds(10);
-        
+
         digitalWrite(emitePin, LOW);
                         </code></pre></li>
                         <li>Ahora usaremos una <b><i>NUEVA</i></b> función de Arduino que nos dice cúantos <b>microsegundos</b> pasan desde que se llama a la función hasta que el valor que llega al pin cambia.<br>
@@ -106,13 +106,13 @@
         long duracion = pulseIn(recibePin, HIGH);
 
         // Calcular la distancia (en cm) basada en la velocidad del sonido
-        distancia = duracion * (340 / 10000) / 2;       // PASAR DE METROS/SEGUNDO A CM/MICROSEGUNDO (340 * 100 / 1000000)
+        distancia = duracion * (340.0 / 10000.0) / 2.0;       // PASAR DE METROS/SEGUNDO A CM/MICROSEGUNDO (340 * 100 / 1000000)
                                                         // Y LUEGO ENTRE 2 PARA PASAR DEL RECORRIDO DE IDA Y VUELTA A SOLO LA IDA
                         </code></pre></li>
                         <li>Si os fijáis bien, hemos utilizado la velocidad del sonido y hemos dividido para 2. ¿Por qué? Porque la onda tiene que ir y volver, y nosotros solo queremos la distancia "de ida" y no el total de ida y vuelta.</li>
                         <li>Ahora, por último pero no menos importante, <b>¡queremos saber la distancia y que no se la quede solo Arduino!</b> Para eso, usaremos una función que ya hemos visto, y vamos a darle un pequeño descanso de 50 milisegundos:
                         <pre><code>
-        Serial.println(distancia + " centimetros");
+        Serial.print(distancia); Serial.println(" centimetros");
         delay(50);
                         </code></pre></li>
                     </ol>
@@ -122,7 +122,7 @@
 int recibePin = 10;  // Echo Pin
 int emitePin = 11;  // Trigger Pin
 
-long distancia;  //Duración usada para calcular la distancia
+float distancia;  //Duración usada para calcular la distancia
 
 void setup() {
     Serial.begin(9600);
@@ -141,10 +141,10 @@ void loop() {
     long duracion = pulseIn(recibePin, HIGH);
 
     //Calcular la distancia (en cm) basada en la velocidad del sonido
-    distancia = duracion * (340 / 10000) / 2;       // DIVIDIMOS 340 / 10000 AL PASAR DE METROS/SEGUNDO A CM/MICROSEGUNDO (340 * 100 / 1000000)
+    distancia = duracion * (340.0 / 10000.0) / 2.0;       // DIVIDIMOS 340 / 10000 AL PASAR DE METROS/SEGUNDO A CM/MICROSEGUNDO (340 * 100 / 1000000)
                                                     // Y LUEGO ENTRE 2 PARA PASAR DEL RECORRIDO DE IDA Y VUELTA A SOLO LA IDA
 
-    Serial.println(distancia + " centimetros");
+    Serial.print(distancia); Serial.println(" centimetros");
     delay(50);
 }
                         </code></pre>
